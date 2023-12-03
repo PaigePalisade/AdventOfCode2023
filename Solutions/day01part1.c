@@ -29,4 +29,6 @@ int main() {
         sum += num;
     }
     printf("%d\n", sum);
+
+    fclose(f);
 }
