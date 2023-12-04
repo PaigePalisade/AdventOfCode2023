@@ -42,6 +42,16 @@
 *.idb
 *.pdb
 
+#inputs
+input.txt
+test.txt
+
+#vscode
+.vscode/
+
+Solutions/*
+!Solutions/*.c
+
 # Kernel Module Compile Results
 *.mod*
 *.cmd
