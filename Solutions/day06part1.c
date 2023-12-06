@@ -3,9 +3,6 @@
 #include <math.h>
 #include <stdlib.h>
 
-#define NUM_SEEDS 20
-
-
 #define NUM_RACES 4
 
 int main() {
