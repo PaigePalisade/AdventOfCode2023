@@ -48,8 +48,6 @@ int comparison(const void* a, const void* b) {
     return 0;
 }
 
-const char strength[] = "AKQJT98765432";
-
 int main() {
     FILE* f = fopen(FILE_NAME, "r");
 
