@@ -124,7 +124,7 @@ int main() {
 
     int count = 0;
 
-    // path tracing algorithm
+    // ray casting algorithm
     for (int r = 0; r < SIZE; r++) {
         for (int c = 0; c < SIZE; c++) {
             if (distances[r][c] == -1) {
