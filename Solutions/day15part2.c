@@ -26,9 +26,6 @@ int hash(char* label) {
         res *= 17;
         res %= 256;
     }
-    if (res != 0) {
-        printf("%d\n", res);
-    }
     return res;
 }
 
