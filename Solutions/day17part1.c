@@ -38,7 +38,8 @@ void sanityCheck() {
     }
 }
 
-void push(Node n) {
+// min heap for priority queue
+void enqueue(Node n) {
     int ind = heapSize;
     heapSize ++;
     assert(heapSize <= MAX_HEAP_SIZE);
@@ -50,7 +51,7 @@ void push(Node n) {
     heap[ind] = n;
 }
 
-Node pop() {
+Node dequeue() {
     if (heapSize == 1) {
         heapSize --;
         return heap[0];
@@ -107,10 +108,10 @@ int main() {
         }
     }
 
-    push((Node){0,0,0,0});
+    enqueue((Node){0,0,0,0});
 
     while (heapSize != 0) {
-        Node n = pop();
+        Node n = dequeue();
         int r = n.r;
         int c = n.c;
         int dist = n.dist;
@@ -138,30 +139,30 @@ int main() {
                 if ((newDir | dir) != (NORTH | SOUTH) && (newDir | dir) != (EAST | WEST)) {
                     if (dir != newDir) {
                         if (newDir == NORTH && r - 1 >= 0) {
-                            push((Node){r-1, c, dist + (arr[r-1][c] - '0'), newDir, 1});
+                            enqueue((Node){r-1, c, dist + (arr[r-1][c] - '0'), newDir, 1});
                         }
                         if (newDir == EAST && c + 1 < SIZE) {
-                            push((Node){r, c+1, dist + (arr[r][c+1] - '0'), newDir, 1});
+                            enqueue((Node){r, c+1, dist + (arr[r][c+1] - '0'), newDir, 1});
                         }
                         if (newDir == SOUTH && r + 1 < SIZE) {
-                            push((Node){r+1, c, dist + (arr[r+1][c] - '0'), newDir, 1});
+                            enqueue((Node){r+1, c, dist + (arr[r+1][c] - '0'), newDir, 1});
                         }
                         if (newDir == WEST && c - 1 >= 0) {
-                            push((Node){r, c-1, dist + (arr[r][c-1] - '0'), newDir, 1});
+                            enqueue((Node){r, c-1, dist + (arr[r][c-1] - '0'), newDir, 1});
                         }
                     }
                     else if (run < 3) {
                         if (newDir == NORTH && r - 1 >= 0) {
-                            push((Node){r-1, c, dist + (arr[r-1][c] - '0'), newDir, run + 1});
+                            enqueue((Node){r-1, c, dist + (arr[r-1][c] - '0'), newDir, run + 1});
                         }
                         if (newDir == EAST && c + 1 < SIZE) {
-                            push((Node){r, c+1, dist + (arr[r][c+1] - '0'), newDir, run + 1});
+                            enqueue((Node){r, c+1, dist + (arr[r][c+1] - '0'), newDir, run + 1});
                         }
                         if (newDir == SOUTH && r + 1 < SIZE) {
-                            push((Node){r+1, c, dist + (arr[r+1][c] - '0'), newDir, run + 1});
+                            enqueue((Node){r+1, c, dist + (arr[r+1][c] - '0'), newDir, run + 1});
                         }
                         if (newDir == WEST && c - 1 >= 0) {
-                            push((Node){r, c-1, dist + (arr[r][c-1] - '0'), newDir, run + 1});
+                            enqueue((Node){r, c-1, dist + (arr[r][c-1] - '0'), newDir, run + 1});
                         }
                     }
                 }
